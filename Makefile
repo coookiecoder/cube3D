@@ -6,8 +6,6 @@ objects = $(foreach buffer, $(files), obj/$(buffer).o)
 CFLAGS = -Wall -Wextra -Werror -I.
 CC = gcc
 
-engine = engine/engine.a
-
 MLX42 = MLX42/build/libmlx42.a
 
 NAME = cube3D
@@ -27,25 +25,13 @@ $(MLX42)re:
 $(MLX42)clean:
 	rm -rf MLX42/build
 
-$(engine):
-	make -C engine
+$(NAME): $(objects) $(MLX42)
+	$(CC) $(CFLAGS) $(objects) $(MLX42)-o $(NAME)
 
-$(engine)re:
-	make -C engine re
-
-$(engine)clean:
-	make -C engine clean
-
-$(engine)fclean:
-	make -C engine fclean
-
-$(NAME): $(objects) $(MLX42) $(engine)
-	$(CC) $(CFLAGS) $(objects) $(MLX42) $(engine) -o $(NAME)
-
-clean: $(MLX42)clean $(engine)clean
+clean: $(MLX42)clean
 	rm -rf obj
 
-fclean: clean $(engine)fclean
+fclean: clean
 	rm -rf $(NAME)
 
-re: fclean $(MLX42)re $(engine)re all
+re: fclean $(MLX42)re all
