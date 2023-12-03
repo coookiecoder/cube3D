@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3D.h"
+#include "units.h"
 
-int	main(void)
+void	init_vector(t_vector *vector)
 {
-	t_vector	vector;
-
-	init_vector(&vector);
+	vector->pos.x = float_to_t_float(0);
+	vector->pos.y = float_to_t_float(0);
+	vector->pos.z = float_to_t_float(0);
+	vector->dir.x = float_to_t_float(0);
+	vector->dir.y = float_to_t_float(0);
+	vector->dir.z = float_to_t_float(0);
 }

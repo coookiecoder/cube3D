@@ -10,11 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3D.h"
+#include "units.h"
 
-int	main(void)
+int	t_int_to_int(t_int integer)
 {
-	t_vector	vector;
+	int	result;
 
-	init_vector(&vector);
+	result = integer.value / 1000;
+	return (result);
+}
+
+t_int	int_to_t_int(int integer)
+{
+	t_int	result;
+
+	result.value = integer * 1000;
+	return(result);
 }

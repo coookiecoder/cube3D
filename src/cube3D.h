@@ -10,11 +10,5 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3D.h"
-
-int	main(void)
-{
-	t_vector	vector;
-
-	init_vector(&vector);
-}
+#include "MLX42/include/MLX42/MLX42.h"
+#include "engine/units/units.h"

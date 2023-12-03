@@ -10,11 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3D.h"
+#include "units.h"
 
-int	main(void)
+double	t_float_to_float(t_float floating_number)
 {
-	t_vector	vector;
+	double	result;
 
-	init_vector(&vector);
+	result = (double) floating_number.value / 1000.0;
+	return (result);
+}
+
+t_float float_to_t_float(double floating_number)
+{
+	t_float result;
+
+	result.value = floating_number * 1000.0;
+	return(result);
 }
