@@ -16,6 +16,9 @@ obj/%.o: src/%.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
+$(NAME): $(objects) $(MLX42)
+	$(CC) $(CFLAGS) $(objects) $(MLX42)-o $(NAME)
+
 $(MLX42):
 	cd MLX42 && cmake -B build && make -C build
 
@@ -24,9 +27,6 @@ $(MLX42)re:
 
 $(MLX42)clean:
 	rm -rf MLX42/build
-
-$(NAME): $(objects) $(MLX42)
-	$(CC) $(CFLAGS) $(objects) $(MLX42)-o $(NAME)
 
 clean: $(MLX42)clean
 	rm -rf obj
