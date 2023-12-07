@@ -6,11 +6,11 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/06 11:48:18 by abareux          ###   ########.fr       */
+/*   Updated: 2023/12/07 10:56:22 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_floor(char *line)
+int	is_celling(char *line)
 {
 	if (*(line + 0) == 'C' && *(line + 1) == ' ' && *(line + 2) != '\0')
 		return (1);

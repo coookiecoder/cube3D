@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   load.c                                             :+:      :+:    :+:   */
+/*   NOOT NOOT MOTHER FUCKER                      :#:  :#:         :#:  :#:   */
 /*                                                :#:  :#::#     #::#:  :#:   */
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/06 11:48:08 by abareux          ###   ########.fr       */
+/*   Updated: the-day-it-was updated by UwU                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include "cube3D.h"
 
 static
 void	parse_line(char *line, t_map *map)
@@ -21,7 +21,7 @@ void	parse_line(char *line, t_map *map)
 		set_floor(line, map);
 	else if (is_celling(line))
 		set_celling(line, map);
-	else if(is_map(map));
+	else if (is_map(map))
 		add_line_map(line, map);
 	else
 		map_error(map);
@@ -47,4 +47,5 @@ t_map	*load(char *location)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	return (map);
 }

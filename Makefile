@@ -1,4 +1,4 @@
-files = main
+files = main load texture floor celling map
 
 sources = $(foreach buffer, $(files), src/$(buffer).c)
 objects = $(foreach buffer, $(files), obj/$(buffer).o)
@@ -17,7 +17,7 @@ obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(objects) $(MLX42)
-	$(CC) $(CFLAGS) $(objects) $(MLX42)-o $(NAME)
+	$(CC) $(CFLAGS) $(objects) $(MLX42) -o $(NAME)
 
 $(MLX42):
 	cd MLX42 && cmake -B build && make -C build
