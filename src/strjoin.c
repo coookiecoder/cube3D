@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   celling.c                                          :+:      :+:    :+:   */
+/*   strjoin.c                                          :+:      :+:    :+:   */
 /*                                                :#:  :#::#     #::#:  :#:   */
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 12:45:13 by abareux          ###   ########.fr       */
+/*   Updated: 2023/12/07 12:53:38 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3D.h"
 
-int	is_celling(char *line, t_map *map)
+char	*ft_strjoin(char *string_a, char *string_b, int mode)
 {
-	if (*(line + 0) == 'C' && *(line + 1) == ' ' && *(line + 2) != '\0')
-		return (!map->celling);
-	return (0);
-}
+	size_t	cursor;
+	size_t	cursor_string;
+	char	*result;
 
-void	set_celling(char *line, t_map *map)
-{
-	t_rgb	*result;
-
-	result = malloc(sizeof(t_rgb));
+	cursor = 0;
+	cursor_string = 0;
+	result = malloc(ft_strlen(string_a) + ft_strlen(string_b) + 1);
 	if (!result)
-	{
-		map->floor = (void *) 1;
-		return ;
-	}
-	result->red = atoi(line + 2);
-	while (*line != ',' && *line)
-		line++;
-	result->green = atoi(++line);
-	while (*line != ',' && *line)
-		line++;
-	result->blue = atoi(++line);
-	map->celling = result;
+		return (NULL);
+	while (*(string_a + cursor_string))
+		*(result + cursor++) = *(string_a + cursor_string++);
+	cursor_string = 0;
+	while (*(string_b + cursor_string))
+		*(result + cursor++) = *(string_b + cursor_string++);
+	*(result + cursor) = 0;
+	if (mode == LEFT || mode == BOTH)
+		free(string_a);
+	if (mode == RIGHT || mode == BOTH)
+		free(string_b);
+	return (result);
 }

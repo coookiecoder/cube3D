@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 10:49:04 by abareux          ###   ########.fr       */
+/*   Updated: 2023/12/07 12:54:54 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (write(1, "Error in the argument\n", 23), 1);
-	map = load(*(argv + 1));
-	(void) map;
+	map = load_file(*(argv + 1));
+	write(1, map->map, ft_strlen(map->map));
 }

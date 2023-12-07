@@ -1,10 +1,11 @@
-files = main load texture floor celling map
+files = main load texture floor celling map error strlen strdup strjoin \
+		get_next_line/get_next_line get_next_line/get_next_line_utils
 
 sources = $(foreach buffer, $(files), src/$(buffer).c)
 objects = $(foreach buffer, $(files), obj/$(buffer).o)
 
-CFLAGS = -Wall -Wextra -Werror -I.
-CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g3 -I.
+CC = cc
 
 MLX42 = MLX42/build/libmlx42.a
 
