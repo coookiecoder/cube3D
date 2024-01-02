@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   load.c                                             :+:      :+:    :+:   */
 /*                                                :#:  :#::#     #::#:  :#:   */
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 12:54:54 by abareux          ###   ########.fr       */
+/*   Updated: 2023/12/07 12:48:47 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3D.h"
 
-int	main(int argc, char **argv)
+void	validate_map(t_map *map)
 {
-	t_map	*map;
-	t_pov	*player;
+	char	*buffer;
 
-	if (argc != 2)
-		return (write(1, "Error in the argument\n", 23), 1);
-	map = load_file(*(argv + 1));
-	validate_map(map);
-	player = load_player(map);
+	buffer = ft_strdup(map->map);
+	if (!buffer)
+		malloc_error(map);
+	if (flood(buffer))
+		map_error(map);
 }

@@ -1,4 +1,4 @@
-files = main load texture floor celling map error strlen strdup strjoin \
+files = main load texture floor celling map set_angle validate flood put_useful_thing_in_there error strlen strdup strjoin \
 		get_next_line/get_next_line get_next_line/get_next_line_utils
 
 sources = $(foreach buffer, $(files), src/$(buffer).c)

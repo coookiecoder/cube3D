@@ -40,7 +40,15 @@ typedef struct s_map {
 	char	*map;
 }	t_map;
 
+typedef struct s_pov {
+	double	position_x;
+	double	position_y;
+	int		angle;
+}	t_pov;
+
 t_map	*load_file(char *location);
+
+t_pov	*load_player(t_map *map);
 
 int		is_texture(char *line, t_map *map);
 void	set_texture(char *line, t_map *map);
@@ -56,6 +64,14 @@ void	add_line_map(char *line, t_map *map);
 
 void	map_error(t_map *map);
 void	malloc_error(t_map *map);
+
+void	validate_map(t_map *map);
+
+int		flood(char *map);
+
+int		empty(char c);
+
+void	set_angle(t_pov *player, char angle);
 
 int		ft_strlen(char *s);
 
