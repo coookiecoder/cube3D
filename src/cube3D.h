@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 12:00:34 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/06 10:23:32 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stddef.h>
+# include <stdio.h>
 
 # include "get_next_line/get_next_line.h"
 
