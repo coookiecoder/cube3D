@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/06 10:23:32 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/07 10:21:14 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	set_celling(char *line, t_map *map);
 
 int		is_map(t_map *map);
 void	add_line_map(char *line, t_map *map);
+char	get_cell(char *map, int x, int y);
 
 void	map_error(t_map *map);
 void	malloc_error(t_map *map);

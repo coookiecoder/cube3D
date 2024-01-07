@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   flood.c                                            :+:      :+:    :+:   */
 /*                                                :#:  :#::#     #::#:  :#:   */
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 12:07:37 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/07 10:33:21 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,21 +81,26 @@ int	check_map(char *map)
 	int	i;
 	int	pos_x;
 	int	pos_y;
+	int	buffer;
 
 	pos_x = 0;
 	pos_y = 0;
+	buffer = 0;
 	flood_map(map, &pos_x, &pos_y);
 	write(1, map, ft_strlen(map));
 	i = 1;
 	pos_x = 0;
 	while (map[i])
 	{
-		if (map[i] == '2' && (map[i - 1] == '\n' || map[i + 1] == '\n'))
+		if (map[i] == '2' && ((map[i - 1] == '\n' || map[i + 1] == '\n') || \
+	(pos_x == 0 || pos_x == pos_y) || get_cell(map, buffer, pos_x - 1) == '\n'))
 			return (1);
-		if (map[i] == '2' && (pos_x == 0 || pos_x == pos_y))
-			return (1);
+		buffer++;
 		if (map[i++] == '\n')
+		{
+			buffer = 0;
 			pos_x++;
+		}
 	}
 	return (0);
 }

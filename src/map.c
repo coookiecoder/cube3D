@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 12:42:07 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/07 10:20:23 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,27 @@ void	add_line_map(char *line, t_map *map)
 		map->map = ft_strjoin(map->map, line, LEFT);
 	if (!map->map)
 		malloc_error(map);
+}
+
+char	get_cell(char *map, int x, int y)
+{
+	int	iteration;
+	int	pos_x;
+	int	pos_y;
+
+	iteration = 0;
+	pos_x = 0;
+	pos_y = 0;
+	while (map[iteration])
+	{
+		if (pos_x == x && pos_y == y)
+			return (map[iteration]);
+		pos_x++;
+		if (map[iteration++] == '\n')
+		{
+			pos_x = 0;
+			pos_y++;
+		}
+	}
+	return ((char) 0);
 }
