@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/07 10:33:21 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 09:31:08 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,14 @@ int	check_map(char *map)
 	pos_y = 0;
 	buffer = 0;
 	flood_map(map, &pos_x, &pos_y);
-	write(1, map, ft_strlen(map));
+	write(1, map, ft_strlen(map)); // remove once finished
 	i = 1;
 	pos_x = 0;
 	while (map[i])
 	{
 		if (map[i] == '2' && ((map[i - 1] == '\n' || map[i + 1] == '\n') || \
-	(pos_x == 0 || pos_x == pos_y) || get_cell(map, buffer, pos_x - 1) == '\n'))
+	(pos_x == 0 || pos_x == pos_y) || get_cell(map, buffer, pos_x - 1) == '\n'\
+	|| get_cell(map, buffer, pos_x + 1) == 0))
 			return (1);
 		buffer++;
 		if (map[i++] == '\n')
