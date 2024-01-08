@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 09:18:57 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 09:42:35 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	map_error(t_map *map);
 void	malloc_error(t_map *map);
 
 void	validate_map(t_map *map);
+void	validate_data(t_map *map);
 
 int		flood(char *map);
 

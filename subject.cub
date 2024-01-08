@@ -1,7 +1,7 @@
-NO ./asset/north
-SO ./asset/south
-WE ./asset/west
-EA ./asset/east
+NO ./asset/north.png
+SO ./asset/south.png
+WE ./asset/west.png
+EA ./asset/east.png
 
 F 220, 100, 0
 C 225, 30, 0

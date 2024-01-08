@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/06 11:59:43 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 09:38:27 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,12 @@ t_map	*load_file(char *location)
 
 t_pov	*load_player(t_map *map)
 {
-	int		iteration;
-	int		position_x;
-	int		position_y;
-	t_pov	*player;
+	int			iteration;
+	static int	position_x;
+	static int	position_y;
+	t_pov		*player;
 
 	iteration = 0;
-	position_y = 0;
-	position_x = 0;
 	while (!is_player(map->map[iteration]) && map->map[iteration])
 	{
 		if (map->map[iteration++] == '\n')
@@ -94,6 +92,8 @@ t_pov	*load_player(t_map *map)
 	if (!is_player(map->map[iteration]))
 		map_error(map);
 	player = malloc(sizeof(player));
+	if (!player)
+		malloc_error(map);
 	player->position_x = position_x;
 	player->position_y = position_y;
 	set_angle(player, map->map[iteration]);

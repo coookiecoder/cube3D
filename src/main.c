@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 09:18:30 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 09:41:35 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 		return (write(1, "Error in the argument\n", 23), 1);
 	map = load_file(*(argv + 1));
 	validate_map(map);
+	validate_data(map);
 	player = load_player(map);
 	printf("position x : %f\n", player->position_x);
 	printf("position Y : %f\n", player->position_y);
