@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/07 10:20:23 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 10:34:42 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,22 @@ int	is_map(t_map *map)
 	return (1);
 }
 
+static
+int	is_valid(char *line)
+{
+	while (*line)
+	{
+		if (*line != '1' && *line != '0' && *line != ' ' && *line != '\n' && *line != 'N' && *line != 'S' && *line != 'E' && *line != 'O')
+			return (0);
+		line++;
+	}
+	return (1);
+}
+
 void	add_line_map(char *line, t_map *map)
 {
+	if (!is_valid(line))
+		map_error(map);
 	if (!map->map)
 		map->map = ft_strdup(line);
 	else

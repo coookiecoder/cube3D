@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 09:42:35 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 10:17:05 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdio.h>
 
 # include "get_next_line/get_next_line.h"
+
+# include "../MLX42/include/MLX42/MLX42.h"
 
 # define LEFT 1
 # define RIGHT 2
@@ -83,5 +85,8 @@ int		ft_strlen(char *s);
 char	*ft_strdup(char *s);
 
 char	*ft_strjoin(char *string_a, char *string_b, int mode);
+
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_intset(void *s, int c, size_t n);
 
 #endif
