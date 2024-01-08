@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/06 10:24:36 by abareux          ###   ########.fr       */
+/*   Updated: 2024/01/08 09:18:30 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_map	*map;
 	t_pov	*player;
 
-	if (argc != 2)
+	if (argc != 2 || check_extension(*(argv + 1)))
 		return (write(1, "Error in the argument\n", 23), 1);
 	map = load_file(*(argv + 1));
 	validate_map(map);
