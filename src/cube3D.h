@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 10:17:05 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/01 13:29:00 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,7 @@ char	*ft_strjoin(char *string_a, char *string_b, int mode);
 
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_intset(void *s, int c, size_t n);
+
+int		ft_atoi(const char *nptr);
 
 #endif

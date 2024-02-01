@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 10:20:56 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/01 13:30:40 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int get_rgba(t_rgb *rgb)
 	int result;
 
 	result = 0;
-	result |= rgb->red << 24;
-	result |= rgb->green << 16;
-	result |= rgb->blue << 8;
-	result |= 255;
+	result |= rgb->red;
+	result |= rgb->green << 8;
+	result |= rgb->blue << 16;
+	result |= 255 << 24;
     return (result);
 }
 

@@ -6,9 +6,19 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 11:35:35 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/01 13:30:19 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "cube3D.h"
+
+static
+int	ft_isdigit(const char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 static
 void	ft_getsign(const char *c, int *sign, int *cursor)
