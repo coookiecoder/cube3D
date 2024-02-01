@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 10:34:42 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/01 15:58:26 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	is_valid(char *line)
 {
 	while (*line)
 	{
-		if (*line != '1' && *line != '0' && *line != ' ' && *line != '\n' && *line != 'N' && *line != 'S' && *line != 'E' && *line != 'O')
+		if (*line != '1' && *line != '0' && *line != ' ' && *line != '\n' && \
+			*line != 'N' && *line != 'S' && *line != 'E' && *line != 'O')
 			return (0);
 		line++;
 	}
