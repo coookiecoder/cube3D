@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/01 13:30:40 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/01 15:32:25 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,28 @@ int get_rgba(t_rgb *rgb)
 	result |= rgb->blue << 16;
 	result |= 255 << 24;
     return (result);
+}
+
+void	loop_hook(void *arg)
+{
+	(void) arg;
+	return ;
+}
+
+void	key_hook(mlx_key_data_t keydata, void *arg)
+{
+	t_pov	*player;
+
+	player = arg;
+	if (keydata.key == MLX_KEY_Q)
+		player->angle += 1;
+	if (keydata.key == MLX_KEY_E)
+		player->angle -= 1;
+	if (player->angle > 360)
+		player->angle = 0;
+	if (player->angle < 0)
+		player->angle = 360;
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -40,10 +62,13 @@ int	main(int argc, char **argv)
 	printf("position x : %f\n", player->position_x);
 	printf("position Y : %f\n", player->position_y);
 	printf("angle pov : %d\n", player->angle);
-	mlx = mlx_init(1920, 1080, "cub3D", true);
+	mlx = mlx_init(1920, 1080, "cub3D", false);
 	img = mlx_new_image(mlx, 1920, 1080);
 	ft_intset(img->pixels, get_rgba(map->celling), 1920 * 1080 / 2);
 	ft_intset(img->pixels + (1920 * 1080 * 2), get_rgba(map->floor), 1920 * 1080 / 2);
 	mlx_image_to_window(mlx, img, 0, 0);
+	mlx_loop_hook(mlx, loop_hook, player);
+	mlx_key_hook(mlx, key_hook, player);
 	mlx_loop(mlx);
+	mlx_delete_image(mlx, img);
 }
