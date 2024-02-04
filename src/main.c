@@ -6,11 +6,12 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/04 20:49:39 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/04 21:54:34 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3D.h"
+#include <stdio.h>
 
 #define WIDTH 1080
 #define HEIGHT 1920
@@ -46,7 +47,7 @@ void	key_hook(mlx_key_data_t keydata, void *arg)
 		player->angle += 1;
 	else if (keydata.key == MLX_KEY_E)
 		player->angle -= 1;
-	if (player->angle > 360)
+	if (player->angle >= 360)
 		player->angle = 0;
 	if (player->angle < 0)
 		player->angle = 360;
