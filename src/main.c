@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/01 16:08:31 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/04 20:49:39 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ void	key_hook(mlx_key_data_t keydata, void *arg)
 	t_pov	*player;
 
 	player = arg;
-	if (keydata.key == MLX_KEY_Q)
+	if (keydata.key == MLX_KEY_ESCAPE)
+		mlx_close_window(player->mlx);
+	else if (keydata.key == MLX_KEY_Q)
 		player->angle += 1;
-	if (keydata.key == MLX_KEY_E)
+	else if (keydata.key == MLX_KEY_E)
 		player->angle -= 1;
 	if (player->angle > 360)
 		player->angle = 0;
@@ -65,6 +67,7 @@ int	main(int argc, char **argv)
 	validate_data(map);
 	player = load_player(map);
 	mlx = mlx_init(HEIGHT, WIDTH, "cub3D", false);
+	player->mlx = mlx;
 	img = mlx_new_image(mlx, HEIGHT, WIDTH);
 	ft_intset(img->pixels, get_rgba(map->celling), g_pixel / 2);
 	ft_intset(img->pixels + (g_pixel * 2), get_rgba(map->floor), g_pixel / 2);
@@ -73,4 +76,7 @@ int	main(int argc, char **argv)
 	mlx_key_hook(mlx, key_hook, player);
 	mlx_loop(mlx);
 	mlx_delete_image(mlx, img);
+	mlx_terminate(mlx);
+	purge_map(map);
+	return (free(player), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/01/08 09:38:27 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/04 20:03:52 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ t_pov	*load_player(t_map *map)
 	}
 	if (!is_player(map->map[iteration]))
 		map_error(map);
-	player = malloc(sizeof(player));
+	player = malloc(sizeof(t_pov));
 	if (!player)
 		malloc_error(map);
 	player->position_x = position_x;

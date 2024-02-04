@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/01 15:57:46 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/04 20:16:23 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	check_map(char *map)
 		if (map[i] == '2' && ((map[i - 1] == '\n' || map[i + 1] == '\n') || \
 	(pos_x == 0 || pos_x == pos_y) || get_cell(map, buffer, pos_x - 1) == '\n'\
 	|| get_cell(map, buffer, pos_x + 1) == 0))
-			return (1);
+			return (free(map), 1);
 		buffer++;
 		if (map[i++] == '\n')
 		{
@@ -102,7 +102,7 @@ int	check_map(char *map)
 			pos_x++;
 		}
 	}
-	return (0);
+	return (free(map), 0);
 }
 
 int	flood(char *map)

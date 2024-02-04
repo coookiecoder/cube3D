@@ -1,10 +1,10 @@
-files = main check_extension load texture floor celling map set_angle validate flood put_useful_thing_in_there error strlen strdup strjoin memset atoi\
+files = main check_extension load texture floor celling map set_angle validate flood put_useful_thing_in_there purge error strlen strdup strjoin memset atoi\
 		get_next_line/get_next_line get_next_line/get_next_line_utils
 
 sources = $(foreach buffer, $(files), src/$(buffer).c)
 objects = $(foreach buffer, $(files), obj/$(buffer).o)
 
-CFLAGS = -Wall -Wextra -Werror -g3 -I.
+CFLAGS = -Wall -Wextra -Werror -g3
 CC = cc
 
 MLX42 = MLX42/build/libmlx42.a

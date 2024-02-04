@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/01 13:29:00 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/04 20:14:59 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_pov {
 	double	position_x;
 	double	position_y;
 	int		angle;
+	mlx_t	*mlx;
 }	t_pov;
 
 int		check_extension(char *location);
@@ -79,6 +80,8 @@ int		flood(char *map);
 int		empty(char c);
 
 void	set_angle(t_pov *player, char angle);
+
+void	purge_map(t_map *map);
 
 int		ft_strlen(char *s);
 
