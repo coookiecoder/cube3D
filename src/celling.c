@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2023/12/07 12:45:13 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 09:06:16 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	set_celling(char *line, t_map *map)
 		map->floor = (void *) 1;
 		return ;
 	}
-	result->red = atoi(line + 2);
+	result->red = ft_atoi(line + 2);
 	while (*line != ',' && *line)
 		line++;
-	result->green = atoi(++line);
+	result->green = ft_atoi(++line);
 	while (*line != ',' && *line)
 		line++;
-	result->blue = atoi(++line);
+	result->blue = ft_atoi(++line);
 	map->celling = result;
 }
