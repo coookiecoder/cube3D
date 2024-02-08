@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/08 11:36:57 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 12:12:11 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define LEFT 1
 # define RIGHT 2
 # define BOTH 3
+
+typedef struct s_point {
+	int	x;
+	int	y;
+}	t_point;
 
 typedef struct s_rgb {
 	int	red;
@@ -75,6 +80,7 @@ void	set_celling(char *line, t_map *map);
 int		is_map(t_map *map);
 void	add_line_map(char *line, t_map *map);
 char	get_cell(char *map, int x, int y);
+int		is_leak(char *map, t_point pos, int buffer, int i);
 
 void	map_error(t_map *map);
 void	malloc_error(t_map *map);

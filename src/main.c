@@ -6,11 +6,12 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/08 12:00:16 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 12:15:55 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3D.h"
+#include <stdio.h>
 
 #define WIDTH 1080
 #define HEIGHT 1920

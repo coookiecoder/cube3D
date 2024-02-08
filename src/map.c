@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/01 15:58:26 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 12:11:39 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,21 @@ char	get_cell(char *map, int x, int y)
 		}
 	}
 	return ((char) 0);
+}
+
+int	is_leak(char *map, t_point pos, int buffer, int i)
+{
+	if (map[i - 1] == '\n' || map[i + 1] == '\n')
+		return (1);
+	if (pos.x == 0 || pos.x == pos.y)
+		return (1);
+	if (get_cell(map, buffer, pos.x - 1) == '\n')
+		return (1);
+	if (get_cell(map, buffer, pos.x - 1) == 0)
+		return (1);
+	if (get_cell(map, buffer, pos.x + 1) == '\n')
+		return (1);
+	if (get_cell(map, buffer, pos.x + 1) == 0)
+		return (1);
+	return (0);
 }
