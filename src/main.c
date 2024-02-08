@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/08 11:49:10 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 12:00:16 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	key_hook(mlx_key_data_t keydata, void *arg)
 	player = arg;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(player->mlx);
-	else if (keydata.key == MLX_KEY_Q)
+	else if (keydata.key == MLX_KEY_Q || keydata.key == MLX_KEY_RIGHT)
 		player->angle += 1;
-	else if (keydata.key == MLX_KEY_E)
+	else if (keydata.key == MLX_KEY_E || keydata.key == MLX_KEY_LEFT)
 		player->angle -= 1;
 	if (player->angle >= 360)
 		player->angle = 0;
