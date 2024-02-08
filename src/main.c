@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/08 09:04:31 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 11:49:10 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	key_hook(mlx_key_data_t keydata, void *arg)
 {
 	t_pov	*player;
 
+	if (!arg)
+		return ;
 	player = arg;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(player->mlx);
@@ -53,12 +55,27 @@ void	key_hook(mlx_key_data_t keydata, void *arg)
 	return ;
 }
 
+t_data	*pack_data(t_map *map, t_pov *player, mlx_t *mlx, mlx_image_t *img)
+{
+	t_data	*packed_data;
+
+	packed_data = malloc(sizeof(t_data));
+	if (!packed_data)
+		return (NULL);
+	packed_data->map = map;
+	packed_data->player = player;
+	packed_data->mlx = mlx;
+	packed_data->img = img;
+	return (packed_data);
+}
+
 int	main(int argc, char **argv)
 {
 	t_map		*map;
 	t_pov		*player;
 	mlx_t		*mlx;
 	mlx_image_t	*img;
+	t_data		*data;
 
 	if (argc != 2 || check_extension(*(argv + 1)))
 		return (write(1, "Error in the argument\n", 23), 1);
@@ -72,11 +89,11 @@ int	main(int argc, char **argv)
 	ft_intset(img->pixels, get_rgba(map->celling), g_pixel / 2);
 	ft_intset(img->pixels + (g_pixel * 2), get_rgba(map->floor), g_pixel / 2);
 	mlx_image_to_window(mlx, img, 0, 0);
-	mlx_loop_hook(mlx, loop_hook, player);
+	data = pack_data(map, player, mlx, img);
+	mlx_loop_hook(mlx, loop_hook, data);
 	mlx_key_hook(mlx, key_hook, player);
 	mlx_loop(mlx);
 	mlx_delete_image(mlx, img);
 	mlx_terminate(mlx);
-	purge_map(map);
-	return (free(player), 0);
+	return (free(player), free(data), purge_map(map), 0);
 }

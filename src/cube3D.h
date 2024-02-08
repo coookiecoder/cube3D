@@ -6,7 +6,7 @@
 /*   By: an asshole who like to break thing       :#:  :#::#: # :#::#:  :#:   */
 /*                                                :##::##: :#:#:#: :##::##:   */
 /*   Created: the-day-it-was created by UwU        :####:  :##:##:  :####:    */
-/*   Updated: 2024/02/04 20:14:59 by abareux          ###   ########.fr       */
+/*   Updated: 2024/02/08 11:36:57 by abareux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ typedef struct s_pov {
 	int		angle;
 	mlx_t	*mlx;
 }	t_pov;
+
+typedef struct s_data {
+	t_map		*map;
+	t_pov		*player;
+	mlx_t		*mlx;
+	mlx_image_t	*img;
+}	t_data;
 
 int		check_extension(char *location);
 
